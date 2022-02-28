@@ -4,13 +4,13 @@ function Index() {
     return (
         <>
             <div className="py-8">
-                <div className="flex flex-wrap  -mx-4">
-                    <div className="flex flex-col grow-0 basis-1/2 shrink-0 lg:basis-2/3 lg:max-w-[66.6%] px-4 relative w-full">
-                        <div className="flex items-center mb-4 text-xl
+                <div className="flex flex-wrap  ">
+                    <div className="flex flex-col grow-0 basis-1/2 shrink-0 lg:basis-2/3 lg:max-w-[66.6%] px-4  relative w-full">
+                        <div className="flex items-center text-xl
                         text-gray-900 
                         font-bold">Banjos Beerwah </div>
-                        <div className="text-gray-400">Beerwah Market Place | 22 Peachester Road, Beerwah QLD 4519</div>
-                        <div className="flex items-baseline">
+                        <div className="mb-2 text-gray-400">Beerwah Market Place | 22 Peachester Road, Beerwah QLD 4519</div>
+                        <div className="flex items-baseline mb-2">
                             <img className="mr-1" src="/img/open.svg" />
                             <span className=" items-baseline ">
                                 Open 7 Days | 5am - 6pm (Mon - Fri) | 6am - 6pm (Weekends)
@@ -41,9 +41,10 @@ function Index() {
 
                     <div className="mt-6 lg:hidden basis-0 grow max-w-full px-4 relative w-full">
                         <div className="flex items-center">
-                            <button className="flex items-center text-[#747d42] h-8 px-3 border-gray-200 border rounded-md font-normal text-center align-middle select-none text-[1rem] leading-[1.5] mr-2">
+                            <button className="flex items-center text-[#747d42] h-8 px-3 border-gray-200 border rounded-md font-normal text-center align-middle select-none sm:text-[1rem] leading-[1.5] mr-2 text-[.75rem]">
                                 <img className="mr-2" src="/img/bag.svg" /> BANJOS MENU</button>
-                            <button className="flex items-center text-[#747d42] h-8 px-3 border-gray-200 border rounded-md  mr-2 font-normal text-center align-middle select-none text-[1rem] leading-[1.5]">
+                            <button className="flex items-center text-[#747d42] h-8 px-3 border-gray-200 border rounded-md  mr-2 font-normal text-center align-middle select-none sm:text-[1rem] leading-[1.5]
+                            text-[.7rem]">
                                 <img className="mr-2" src="img/v.svg" /> PLATTERS MENU</button>
                         </div>
                     </div>

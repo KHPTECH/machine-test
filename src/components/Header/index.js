@@ -4,7 +4,7 @@ function Index() {
   return (
     <>
       <section>
-        <div className="flex flex-row justify-between mx-2 items-center">
+        <div className="flex flex-row justify-between  items-center md:max-w-[720] lg:max-w-[970px] xl:max-w-[1200] 2xl:max-w-[1300px]  mx-auto py-1 sm:py-3 px-2">
           <div className="flex space-x-2 font-bold capitalize text-2xl items-center">
             <div>
               <img src="logo.svg" alt="" />
