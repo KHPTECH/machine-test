@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-function Index() {
+function Index({data}) {
     return (
         <>
             <div className="py-8">
@@ -8,12 +8,12 @@ function Index() {
                     <div className="flex flex-col grow-0 basis-1/2 shrink-0 lg:basis-2/3 lg:max-w-[66.6%] px-4  relative w-full">
                         <div className="flex items-center text-xl
                         text-gray-900 
-                        font-bold">Banjos Beerwah </div>
-                        <div className="mb-2 text-gray-400">Beerwah Market Place | 22 Peachester Road, Beerwah QLD 4519</div>
+                        font-bold">{data?.name} </div>
+                        <div className="mb-2 text-gray-400">{data?.address}</div>
                         <div className="flex items-baseline mb-2">
                             <img className="mr-1" src="/img/open.svg" />
                             <span className=" items-baseline ">
-                                Open 7 Days | 5am - 6pm (Mon - Fri) | 6am - 6pm (Weekends)
+                               {data?.hours}
                             </span>
                         </div>
                         <div className="item-center mt-4 hidden lg:flex">
@@ -29,13 +29,16 @@ function Index() {
                     <div className=" flex grow-0 basis-1/2 shrink-0 lg:basis-1/3 lg:max-w-[33.3%] px-4 relative w-full">
                         <div className="relative ml-auto sm:w-44">
                             <img className="w-full max-w-full rounded-lg object-cover " src="https://banjoslivestorage-ordering.s3.ap-southeast-2.amazonaws.com/stores/5MCns9EesOmheMYHFtIFdAAvUjCUAN6FbBOY5u8R.jpeg" alt="" />
+                            <a href={`tel:${data?.phone}`}>
                             <div className="h-10 px-4 bg-red-100 flex items-center justify-center -m-6 relative z-10 mx-4 cursor-pointer
                                 text-red-500 rounded-md 
                                 shadow-lg ">
+                                    
                                 <img className="
                                    mr-2 align-middle
                                    border-none w-5 max-w-full width rounded-lg 
                                 " src="/img/call.svg" alt="" />CALL</div>
+                                </a>
                         </div>
                     </div>
 

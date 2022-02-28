@@ -8,12 +8,18 @@ import React, { useEffect, useState } from "react";
 function Index() {
   const [loading, setLoading] = useState(true);
   const [storeData, setStoreData] = useState();
+  const [result, setResult] = useState();
+  const [isSearch, setIsSearch] = useState()
+  const [cityFilter, setCityFilter] = useState()
 
   const fethData = async () => {
+    setCityFilter()
     try {
-      const { data } = await getData({ url: "http://54.253.29.55/api/stores" });
+      const search = isSearch ? `?name=${isSearch}` : ''
+      const { data } = await getData({ url: `http://54.253.29.55/api/stores${search}` });
       console.log(data.data);
       setStoreData(data.data);
+      setResult(data.data)
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -22,7 +28,21 @@ function Index() {
 
   useEffect(() => {
     fethData();
-  }, []);
+  }, [isSearch])
+
+  const filterCity =()=>{
+    const resp = result.filter((e)=> e.city_name == cityFilter)
+    console.log(resp);
+    setStoreData(resp);
+
+  }
+
+  useEffect(() => {
+      console.log(cityFilter);
+      if(cityFilter){
+     filterCity();
+      }
+  }, [cityFilter])
 
   return (
     <>
@@ -32,7 +52,19 @@ function Index() {
       <div className="md:max-w-[720] lg:max-w-[970px] xl:max-w-[1200] 2xl:max-w-[1300px]  mx-auto">
         <div className="flex flex-wrap mx-0 ">
           <div className="p-0 basis-0 grow max-w-full border-r border-gray-100 hidden sm:inline">
-            <PlaceNav />
+          <div className="sticky top-16 py-6 "><ul className="list-none m-0 p-0">
+            <li onClick={()=>{setCityFilter("New South Wales")}} className={` flex py-3 items-center
+                cursor-pointer border-r-4 border-transparent hover:text-[#d7a946] hover:border-[#d7a946] `   + (cityFilter === "New South Wales" ? " text-[#d7a946] border-[#d7a946]":"")}>New South Wales</li>
+                <li onClick={()=>{setCityFilter("Queensland")}} className={` flex py-3 items-center
+                cursor-pointer border-r-4 border-transparent hover:text-[#d7a946] hover:border-[#d7a946] `   + (cityFilter === "Queensland" ? " text-[#d7a946] border-[#d7a946]":"")}>Queensland</li>
+                 <li onClick={()=>{setCityFilter("South Australia")}} className={` flex py-3 items-center
+                cursor-pointer border-r-4 border-transparent hover:text-[#d7a946] hover:border-[#d7a946] `   + (cityFilter === "South Australia" ? " text-[#d7a946] border-[#d7a946]":"")}>South Australia</li>
+                <li onClick={()=>{setCityFilter("Tasmania")}} className={` flex py-3 items-center
+                cursor-pointer border-r-4 border-transparent hover:text-[#d7a946] hover:border-[#d7a946] `   + (cityFilter === "Tasmania" ? " text-[#d7a946] border-[#d7a946]":"")}>Tasmania</li>
+                <li onClick={()=>{setCityFilter("Victoria")}} className={` flex py-3 items-center
+                cursor-pointer border-r-4 border-transparent hover:text-[#d7a946] hover:border-[#d7a946] `   + (cityFilter === "Victoria" ? " text-[#d7a946] border-[#d7a946]":"")}>Victoria</li>
+            </ul>
+            </div>
           </div>
 
           <div className="md:grow-0 md:shrink-0 sm:basis-3/4 sm:max-w-[75%]">
@@ -48,11 +80,12 @@ function Index() {
                   type="text"
                   className="outline-none bg-transparent ml-3 text-lg"
                   placeholder="Search Store"
+                  onChange={(e)=>{setIsSearch(e.target.value)}}
                 />
               </div>
 
               <hr></hr>
-              {storeData.map((data, index) => (
+              {storeData?.map((data, index) => (
                 <StoreCard data={data} key={index} />
               ))}
             </div>
