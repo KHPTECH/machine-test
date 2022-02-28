@@ -2,12 +2,41 @@ import Header from '../../components/Header'
 import StoreCard from '../../components/StoreCard'
 import PlaceNav from "../../components/PlaceNav"
 import Breadcrumb from "../../components/Breadcrumb"
-function Index(){
-    return(<>
+function Index() {
+    return (<>
         <Header />
         <Breadcrumb />
 
-        
+        <div className="md:max-w-[720] lg:max-w-[970px] xl:max-w-[1200] 2xl:max-w-[1300px]  mx-auto">
+            <div className="flex flex-wrap mx-0">
+                <div className="p-0 basis-0 grow max-w-full border-r border-gray-100">
+                    <PlaceNav />
+                </div>
+
+                <div className="md:grow-0 md:shrink-0 basis-3/4 max-w-[75%]">
+                    <div className="pt-0 px-9 pb-6 relative mt-0 min-h-[calc(100vh - 130px)] md:px-6">
+                        <h2 className="text-4xl font-bold mt-2 mb-4">Our Stores</h2>
+
+                        <div className="w-full px-3 py-3 bg-gray-100  flex flex-wrap items-center rounded-md mb-3">
+                            
+                                <span className="flex">
+                                    <img  src="img/search.svg" />
+                                </span>
+                            
+                            <input type="text" className="outline-none bg-transparent ml-3 text-lg"placeholder="Search Store" />
+                        </div>
+
+                        <hr></hr>
+                        <StoreCard />
+                        <StoreCard />
+                        <StoreCard />
+                        
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
         {/* <StoreCard /> */}
         {/* <PlaceNav/> */}
     </>)
