@@ -28,7 +28,7 @@ function Index({data}) {
 
                     <div className=" flex grow-0 basis-1/2 shrink-0 lg:basis-1/3 lg:max-w-[33.3%] px-4 relative w-full">
                         <div className="relative ml-auto sm:w-44">
-                            <img className="w-full max-w-full rounded-lg object-cover " src="https://banjoslivestorage-ordering.s3.ap-southeast-2.amazonaws.com/stores/5MCns9EesOmheMYHFtIFdAAvUjCUAN6FbBOY5u8R.jpeg" alt="" />
+                            <img className="w-full max-w-full rounded-lg object-cover " src={data?.image} alt="" />
                             <a href={`tel:${data?.phone}`}>
                             <div className="h-10 px-4 bg-red-100 flex items-center justify-center -m-6 relative z-10 mx-4 cursor-pointer
                                 text-red-500 rounded-md 
