@@ -52,7 +52,7 @@ function Index() {
       <div className="md:max-w-[720] lg:max-w-[970px] xl:max-w-[1200] 2xl:max-w-[1300px]  mx-auto">
         <div className="flex flex-wrap mx-0 ">
           <div className="p-0 basis-0 grow max-w-full border-r border-gray-100 hidden sm:inline">
-          <div className="sticky top-16 py-6 "><ul className="list-none m-0 p-0">
+          <div className="sticky top-16 py-6 ml-3"><ul className="list-none m-0 p-0">
             <li onClick={()=>{setCityFilter("New South Wales")}} className={` flex py-3 items-center
                 cursor-pointer border-r-4 border-transparent hover:text-[#d7a946] hover:border-[#d7a946] `   + (cityFilter === "New South Wales" ? " text-[#d7a946] border-[#d7a946]":"")}>New South Wales</li>
                 <li onClick={()=>{setCityFilter("Queensland")}} className={` flex py-3 items-center
